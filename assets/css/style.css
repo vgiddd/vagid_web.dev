@@ -455,11 +455,11 @@ footer::before {
 
 /* Touch */
 @media (hover: none) {
-  body { cursor: auto; }
+  body { cursor: none; }
   .cursor, .cursor-trail { display: none; }
-  .back-to-top { cursor: pointer; }
-  .sk { cursor: pointer; }
-  .burger { cursor: pointer; }
+  .back-to-top { cursor: none; }
+  .sk { cursor: none; }
+  .burger { cursor: none; }
   .sk:active { background: var(--brown2); border-color: rgba(240,235,227,0.28); transform: translateY(-8px) scale(1.05); box-shadow: 0 16px 32px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.25); }
   .pcard:active { transform: translateY(-6px) scale(1.02); border-color: rgba(106,156,196,0.45); box-shadow: 0 14px 30px rgba(0,0,0,0.35); }
   .soc:active { background: rgba(240,235,227,0.09); transform: translateY(-3px) scale(1.02); }
