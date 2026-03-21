@@ -182,6 +182,11 @@ document.querySelectorAll('.ctab').forEach(btn => {
   });
 });
 
+function updateTgPhoneField() {
+  const wrap = document.getElementById('tg-phone-wrap');
+  if (wrap) wrap.style.display = activeTab === 'tg' ? 'block' : 'none';
+}
+
 const cselect = document.getElementById('ctabSelect');
 if (cselect) {
   cselect.querySelector('.cselect-val').addEventListener('click', () => cselect.classList.toggle('open'));
@@ -194,10 +199,16 @@ if (cselect) {
       const inp = document.getElementById('fcontact');
       if (inp) inp.placeholder = tabPlaceholders[activeTab];
       cselect.classList.remove('open');
+      updateTgPhoneField();
     });
   });
   document.addEventListener('click', e => { if (!cselect.contains(e.target)) cselect.classList.remove('open'); });
 }
+
+document.querySelectorAll('.ctab').forEach(btn => {
+  btn.addEventListener('click', updateTgPhoneField);
+});
+updateTgPhoneField();
 
 const orderForm = document.getElementById('orderForm');
 if (orderForm) {
@@ -205,6 +216,7 @@ if (orderForm) {
     e.preventDefault();
     const name    = document.getElementById('fname').value.trim();
     const contact = document.getElementById('fcontact').value.trim();
+    const phone   = document.getElementById('fphone') ? document.getElementById('fphone').value.trim() : '';
     const msg     = document.getElementById('fmsg').value.trim();
     const status  = document.getElementById('formStatus');
     const btn     = orderForm.querySelector('.form-btn');
@@ -221,6 +233,20 @@ if (orderForm) {
       status.textContent = 'Укажите контакт для связи.';
       status.className = 'form-status err';
       return;
+    }
+
+    /* ── Фильтр: телефон обязателен при Telegram ── */
+    if (activeTab === 'tg') {
+      if (!phone) {
+        status.textContent = 'Укажите номер телефона — на случай если не смогу написать в TG.';
+        status.className = 'form-status err';
+        return;
+      }
+      if (!/^\+?[\d\s\-\(\)]{7,15}$/.test(phone)) {
+        status.textContent = 'Введите корректный номер телефона.';
+        status.className = 'form-status err';
+        return;
+      }
     }
 
     /* ── Фильтр: валидация формата контакта ── */
@@ -273,6 +299,7 @@ if (orderForm) {
     let text = '📩 Новая заявка с сайта\n';
     if (name)    text += `👤 Имя: ${name}\n`;
     text += `📌 ${tabLabels[activeTab]}: ${contact}`;
+    if (phone)   text += `\n📞 Телефон: ${phone}`;
     if (msg)     text += `\n💬 Сообщение: ${msg}`;
 
     try {
