@@ -206,8 +206,12 @@ if (cselect) {
 }
 
 document.querySelectorAll('.ctab').forEach(btn => {
-  btn.addEventListener('click', updateTgPhoneField);
+  btn.addEventListener('click', () => {
+    activeTab = btn.dataset.tab;
+    updateTgPhoneField();
+  });
 });
+window.addEventListener('DOMContentLoaded', updateTgPhoneField);
 updateTgPhoneField();
 
 const orderForm = document.getElementById('orderForm');
