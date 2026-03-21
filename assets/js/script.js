@@ -265,23 +265,8 @@ if (orderForm) {
     }
 
     btn.disabled = true;
-    status.textContent = 'Проверяю...';
+    status.textContent = 'Отправляю...';
     status.className = 'form-status';
-
-    /* ── Проверка существования Telegram аккаунта ── */
-    if (activeTab === 'tg') {
-      const username = contact.replace(/^https?:\/\/t\.me\//i, '').replace(/^@/, '').trim();
-      try {
-        const checkRes = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/getChat?chat_id=@${username}`);
-        const checkData = await checkRes.json();
-        if (!checkData.ok) {
-          status.textContent = 'Такой Telegram аккаунт не найден. Проверьте правильность.';
-          status.className = 'form-status err';
-          btn.disabled = false;
-          return;
-        }
-      } catch(e) { /* если сеть упала — пропускаем проверку */ }
-    }
 
     status.textContent = 'Отправляю...';
 
