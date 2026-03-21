@@ -209,16 +209,6 @@ if (orderForm) {
     const status  = document.getElementById('formStatus');
     const btn     = orderForm.querySelector('.form-btn');
 
-    /* ── Фильтр: лимит отправок (раз в 2 минуты) ── */
-    const lastSent = parseInt(localStorage.getItem('lastFormSent') || '0');
-    const cooldown = 2 * 60 * 1000;
-    if (Date.now() - lastSent < cooldown) {
-      const left = Math.ceil((cooldown - (Date.now() - lastSent)) / 1000);
-      status.textContent = `Подождите ещё ${left} сек. перед следующей отправкой.`;
-      status.className = 'form-status err';
-      return;
-    }
-
     /* ── Фильтр: имя ── */
     if (name && name.length < 2) {
       status.textContent = 'Имя слишком короткое — минимум 2 символа.';
@@ -284,7 +274,6 @@ if (orderForm) {
       });
       const data = await res.json();
       if (data.ok) {
-        localStorage.setItem('lastFormSent', Date.now().toString());
         status.textContent = 'Заявка отправлена! Свяжусь с вами скоро.';
         status.className = 'form-status ok';
         orderForm.reset();
