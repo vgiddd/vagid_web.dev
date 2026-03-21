@@ -251,8 +251,8 @@ if (orderForm) {
     }
 
     /* ── Фильтр: минимальная длина сообщения ── */
-    if (msg && msg.length < 5) {
-      status.textContent = 'Сообщение слишком короткое — напишите хотя бы несколько слов.';
+    if (msg && msg.length < 200) {
+      status.textContent = `Сообщение слишком короткое — минимум 200 символов (сейчас ${msg.length}).`;
       status.className = 'form-status err';
       return;
     }
