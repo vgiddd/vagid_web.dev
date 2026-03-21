@@ -189,7 +189,7 @@ if (cselect) {
     opt.addEventListener('click', () => {
       cselect.querySelectorAll('.cselect-opt').forEach(o => o.classList.remove('active'));
       opt.classList.add('active');
-      cselect.querySelector('.cselect-val').textContent = opt.textContent;
+      cselect.querySelector('.cselect-val').innerHTML = opt.innerHTML;
       activeTab = opt.dataset.tab;
       const inp = document.getElementById('fcontact');
       if (inp) inp.placeholder = tabPlaceholders[activeTab];

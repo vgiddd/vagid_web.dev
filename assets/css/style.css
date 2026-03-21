@@ -530,15 +530,18 @@ footer::before {
 .form-opt { color: rgba(240,235,227,0.25); text-transform: none; letter-spacing: 0; font-size: 0.7rem; }
 .ctabs { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .cselect { display: none; position: relative; cursor: pointer; }
-.cselect-val { background: rgba(240,235,227,0.05); border: 1px solid rgba(240,235,227,0.12); border-radius: 0.6rem; padding: 0.75rem 2.5rem 0.75rem 1rem; color: var(--cream); font-size: 0.9rem; font-family: var(--sans); user-select: none; }
+.cselect-val { display: flex; align-items: center; gap: 0.5rem; background: rgba(240,235,227,0.05); border: 1px solid rgba(240,235,227,0.12); border-radius: 0.6rem; padding: 0.75rem 2.5rem 0.75rem 1rem; color: var(--cream); font-size: 0.9rem; font-family: var(--sans); user-select: none; }
 .cselect-arrow { position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%); color: rgba(240,235,227,0.6); pointer-events: none; transition: transform 0.2s; background: rgba(240,235,227,0.08); border-radius: 0.35rem; width: 1.6rem; height: 1.6rem; display: flex; align-items: center; justify-content: center; }
 .cselect.open .cselect-arrow { transform: translateY(-50%) rotate(180deg); }
 .cselect-drop { display: none; position: absolute; top: calc(100% + 0.4rem); left: 0; right: 0; background: #2a1f14; border: 1px solid rgba(240,235,227,0.12); border-radius: 0.6rem; overflow: hidden; z-index: 100; }
 .cselect.open .cselect-drop { display: block; }
-.cselect-opt { padding: 0.75rem 1rem; color: rgba(240,235,227,0.6); font-size: 0.9rem; font-family: var(--sans); transition: background 0.15s, color 0.15s; }
+.cselect-opt { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; color: rgba(240,235,227,0.6); font-size: 0.9rem; font-family: var(--sans); transition: background 0.15s, color 0.15s; }
 .cselect-opt:hover { background: rgba(240,235,227,0.07); color: var(--cream); }
 .cselect-opt.active { color: var(--cream); background: rgba(196,148,80,0.15); }
 .ctab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   background: rgba(240,235,227,0.05);
   border: 1px solid rgba(240,235,227,0.1);
   color: rgba(240,235,227,0.45);
