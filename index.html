@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -58,7 +58,7 @@
       <h1 class="hero-name rv">
         <span class="name-vagid">Вагид</span>
         <span class="name-role">Frontend</span>
-        <span class="name-role">Dev</span>
+        <span class="name-role">Developer</span>
       </h1>
       <p class="hero-sub rv">
         Создаю лендинги, сайты-визитки и одностраничники.<br>
@@ -252,12 +252,12 @@
 
   <!-- КОНТАКТЫ -->
   <section class="contact-wrap" id="contact">
-    <p class="sec-eye rv">Связаться</p>
-    <h2 class="sec-ttl rv">Контакты</h2>
     <div class="cgrid">
       <div class="rv">
-        <p class="ccta">Есть задача?<br><em>Напишите —</em><br>разберёмся.</p>
-        <p class="cnote">Делаю сайты под ключ: от идеи до готового кода. Работаю аккуратно и в срок.</p>
+        <p class="sec-eye rv">Мои соц сети</p>
+        <h2 class="sec-ttl rv">Слежу, делаю,<br>показываю.</h2>
+        <p class="ccta">Интересно,<br><em>чем занимаюсь?</em><br>Заглядывайте.</p>
+        <p class="cnote">Делюсь процессом работы, новыми проектами и находками из мира веб-разработки. Без воды — только дело.</p>
       </div>
       <div class="soc-list rv">
         <a href="https://github.com/vgiddd" target="_blank" class="soc">
@@ -269,13 +269,13 @@
           <div><div class="sname">GitHub</div><div class="shandle">@vgiddd</div></div>
           <span class="sarr">→</span>
         </a>
-        <a href="https://t.me/vgiddd" target="_blank" class="soc">
+        <a href="https://t.me/vgiddd_dev" target="_blank" class="soc">
           <div class="sico">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="rgba(240,235,227,0.65)">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.356 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
             </svg>
           </div>
-          <div><div class="sname">Telegram</div><div class="shandle">@vgiddd</div></div>
+          <div><div class="sname">Telegram</div><div class="shandle">@vgiddd_dev</div></div>
           <span class="sarr">→</span>
         </a>
         <a href="https://www.instagram.com/dojiaaan" target="_blank" class="soc">
@@ -296,6 +296,50 @@
           <div><div class="sname">TikTok</div><div class="shandle">@c94a5</div></div>
           <span class="sarr">→</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЗАЯВКА -->
+  <section class="form-section" id="order">
+    <div class="form-wrap rv">
+      <div class="form-left">
+        <p class="sec-eye">Заявка</p>
+        <h2 class="sec-ttl">Есть задача?<br>Оставьте заявку.</h2>
+        <p class="form-sub">Укажите удобный способ связи — и я отвечу в течение дня. Работаю аккуратно и в срок.</p>
+        <div class="form-perks">
+          <div class="form-perk">✦ Быстрый ответ</div>
+          <div class="form-perk">✦ Без лишних слов</div>
+          <div class="form-perk">✦ Результат в срок</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <form class="order-form" id="orderForm">
+          <label class="form-label">Ваше имя</label>
+          <input type="text" class="form-inp" id="fname" placeholder="Как к вам обращаться?" maxlength="80">
+          <label class="form-label">Способ связи</label>
+          <div class="ctabs">
+            <button type="button" class="ctab active" data-tab="tg">✈️ Telegram</button>
+            <button type="button" class="ctab" data-tab="wa">💬 WhatsApp</button>
+            <button type="button" class="ctab" data-tab="email">✉️ Email</button>
+          </div>
+          <div class="cselect" id="ctabSelect">
+            <div class="cselect-val">✈️ Telegram</div>
+            <div class="cselect-arrow">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cselect-drop">
+              <div class="cselect-opt active" data-tab="tg">✈️ Telegram</div>
+              <div class="cselect-opt" data-tab="wa">💬 WhatsApp</div>
+              <div class="cselect-opt" data-tab="email">✉️ Email</div>
+            </div>
+          </div>
+          <input type="text" class="form-inp" id="fcontact" placeholder="@username или t.me/username" maxlength="120">
+          <label class="form-label">Сообщение <span class="form-opt">необязательно</span></label>
+          <textarea class="form-inp form-ta" id="fmsg" placeholder="Коротко о задаче..." maxlength="500"></textarea>
+          <button type="submit" class="form-btn">Отправить заявку →</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
       </div>
     </div>
   </section>

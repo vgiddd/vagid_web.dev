@@ -2,6 +2,24 @@
    VAGID PORTFOLIO — script.js (v3 — enhanced)
    ============================================= */
 
+/* ── Авторазмер заголовка ── */
+function fitHeroText() {
+  const container = document.querySelector('.hero-name');
+  const roles = document.querySelectorAll('.name-role');
+  if (!container || !roles.length) return;
+  const maxWidth = container.clientWidth;
+  let lo = 10, hi = 300;
+  while (hi - lo > 0.5) {
+    const mid = (lo + hi) / 2;
+    roles.forEach(el => el.style.fontSize = mid + 'px');
+    const fits = [...roles].every(el => el.scrollWidth <= maxWidth);
+    if (fits) lo = mid; else hi = mid;
+  }
+  roles.forEach(el => el.style.fontSize = lo + 'px');
+}
+requestAnimationFrame(() => { fitHeroText(); document.fonts.ready.then(fitHeroText); });
+window.addEventListener('resize', fitHeroText);
+
 /* ── Кастомный курсор ── */
 const cursor      = document.getElementById('cursor');
 const cursorTrail = document.getElementById('cursorTrail');
@@ -141,3 +159,94 @@ setTimeout(() => {
 
   items.forEach(el => observer.observe(el));
 }, 120);
+
+/* ── Форма заявки ── */
+const TG_TOKEN   = '8001696351:AAGlWiK1rnA0NqNtUIbTDq36ByUH6qh7IiI';
+const TG_CHAT_ID = '8776878396';
+
+const tabPlaceholders = {
+  tg:    '@username или t.me/username',
+  wa:    '+7 999 000 00 00',
+  email: 'example@mail.com'
+};
+const tabLabels = { tg: 'Telegram', wa: 'WhatsApp', email: 'Email' };
+let activeTab = 'tg';
+
+document.querySelectorAll('.ctab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTab = btn.dataset.tab;
+    const inp = document.getElementById('fcontact');
+    if (inp) inp.placeholder = tabPlaceholders[activeTab];
+  });
+});
+
+const cselect = document.getElementById('ctabSelect');
+if (cselect) {
+  cselect.querySelector('.cselect-val').addEventListener('click', () => cselect.classList.toggle('open'));
+  cselect.querySelectorAll('.cselect-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      cselect.querySelectorAll('.cselect-opt').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      cselect.querySelector('.cselect-val').textContent = opt.textContent;
+      activeTab = opt.dataset.tab;
+      const inp = document.getElementById('fcontact');
+      if (inp) inp.placeholder = tabPlaceholders[activeTab];
+      cselect.classList.remove('open');
+    });
+  });
+  document.addEventListener('click', e => { if (!cselect.contains(e.target)) cselect.classList.remove('open'); });
+}
+
+const orderForm = document.getElementById('orderForm');
+if (orderForm) {
+  orderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name    = document.getElementById('fname').value.trim();
+    const contact = document.getElementById('fcontact').value.trim();
+    const msg     = document.getElementById('fmsg').value.trim();
+    const status  = document.getElementById('formStatus');
+    const btn     = orderForm.querySelector('.form-btn');
+
+    if (!contact) {
+      status.textContent = 'Укажите контакт для связи.';
+      status.className = 'form-status err';
+      return;
+    }
+
+    btn.disabled = true;
+    status.textContent = 'Отправляю...';
+    status.className = 'form-status';
+
+    let text = '📩 Новая заявка с сайта\n';
+    if (name)    text += `👤 Имя: ${name}\n`;
+    text += `📌 ${tabLabels[activeTab]}: ${contact}`;
+    if (msg)     text += `\n💬 Сообщение: ${msg}`;
+
+    try {
+      const res = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: TG_CHAT_ID, text })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        status.textContent = 'Заявка отправлена! Свяжусь с вами скоро.';
+        status.className = 'form-status ok';
+        orderForm.reset();
+        document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+        document.querySelector('.ctab[data-tab="tg"]').classList.add('active');
+        activeTab = 'tg';
+        document.getElementById('fcontact').placeholder = tabPlaceholders.tg;
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = 'Ошибка отправки. Попробуйте ещё раз.';
+      status.className = 'form-status err';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
