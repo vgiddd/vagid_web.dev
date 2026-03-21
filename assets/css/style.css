@@ -312,6 +312,7 @@ nav {
 .hero-btns { display: flex; gap: clamp(0.5rem,2vw,1rem); flex-wrap: wrap; margin-bottom: clamp(2rem,5vw,3.5rem); }
 
 .btn-f, .btn-g {
+  display: inline-flex; align-items: center; justify-content: center;
   padding: clamp(0.6rem,1.8vw,0.85rem) clamp(1rem,3.5vw,1.75rem);
   font-size: clamp(0.65rem,1.6vw,0.78rem);
   border-radius: 100px; text-decoration: none; font-weight: 500;
