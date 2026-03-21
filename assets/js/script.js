@@ -209,8 +209,60 @@ if (orderForm) {
     const status  = document.getElementById('formStatus');
     const btn     = orderForm.querySelector('.form-btn');
 
+    /* ── Фильтр: лимит отправок (раз в 2 минуты) ── */
+    const lastSent = parseInt(localStorage.getItem('lastFormSent') || '0');
+    const cooldown = 2 * 60 * 1000;
+    if (Date.now() - lastSent < cooldown) {
+      const left = Math.ceil((cooldown - (Date.now() - lastSent)) / 1000);
+      status.textContent = `Подождите ещё ${left} сек. перед следующей отправкой.`;
+      status.className = 'form-status err';
+      return;
+    }
+
+    /* ── Фильтр: имя ── */
+    if (name && name.length < 2) {
+      status.textContent = 'Имя слишком короткое — минимум 2 символа.';
+      status.className = 'form-status err';
+      return;
+    }
+
+    /* ── Фильтр: контакт обязателен ── */
     if (!contact) {
       status.textContent = 'Укажите контакт для связи.';
+      status.className = 'form-status err';
+      return;
+    }
+
+    /* ── Фильтр: валидация формата контакта ── */
+    const contactValidators = {
+      tg:    /^(@[\w\d_]{4,}|https?:\/\/t\.me\/[\w\d_]{4,})$/i,
+      wa:    /^\+?[\d\s\-\(\)]{7,15}$/,
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+    };
+    if (contactValidators[activeTab] && !contactValidators[activeTab].test(contact)) {
+      const hints = { tg: 'Укажите @username или t.me/username', wa: 'Укажите номер телефона', email: 'Укажите корректный email' };
+      status.textContent = hints[activeTab];
+      status.className = 'form-status err';
+      return;
+    }
+
+    /* ── Фильтр: антиэмодзи-спам ── */
+    function emojiRatio(str) {
+      if (!str) return 0;
+      const emojiRegex = /\p{Emoji_Presentation}|\p{Extended_Pictographic}/gu;
+      const emojis = (str.match(emojiRegex) || []).length;
+      const words  = str.replace(emojiRegex, '').trim().length;
+      return words === 0 ? 1 : emojis / (emojis + words);
+    }
+    if (emojiRatio(msg) > 0.5 || emojiRatio(name) > 0.5) {
+      status.textContent = 'Пожалуйста, напишите нормальное сообщение.';
+      status.className = 'form-status err';
+      return;
+    }
+
+    /* ── Фильтр: минимальная длина сообщения ── */
+    if (msg && msg.length < 5) {
+      status.textContent = 'Сообщение слишком короткое — напишите хотя бы несколько слов.';
       status.className = 'form-status err';
       return;
     }
@@ -232,6 +284,7 @@ if (orderForm) {
       });
       const data = await res.json();
       if (data.ok) {
+        localStorage.setItem('lastFormSent', Date.now().toString());
         status.textContent = 'Заявка отправлена! Свяжусь с вами скоро.';
         status.className = 'form-status ok';
         orderForm.reset();
