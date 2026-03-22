@@ -264,7 +264,7 @@ if (orderForm) {
       : Promise.resolve(null);
 
     if (name && name.length < 2)          errors.push('Имя слишком короткое — минимум 2 символа.');
-    if (emojiRatio(name) > 0.5)           errors.push('Имя не должно состоять из эмодзи.');
+    if (emojiRatio(name) > 0.5)           errors.push('Имя не должно содержать эмодзи.');
     if (!contact)                          errors.push('Укажите контакт для связи.');
 
     const contactValidators = {
@@ -283,7 +283,7 @@ if (orderForm) {
     }
 
     if (!msg)                         errors.push('Напишите коротко о задаче.');
-    if (msg && emojiRatio(msg) > 0.5) errors.push('Сообщение не должно состоять из эмодзи.');
+    if (msg && emojiRatio(msg) > 0.5) errors.push('Сообщение не должно содержать эмодзи.');
 
     /* ── Ждём AI и добавляем ошибку в общий список ── */
     btn.disabled = true;

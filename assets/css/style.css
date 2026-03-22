@@ -577,9 +577,9 @@ footer::before {
   background: rgba(240,235,227,0.07);
 }
 .form-ta { resize: vertical; min-height: 90px; }
-.form-ta-wrap { position: relative; width: 100%; }
-.form-ta-wrap .form-ta { width: 100%; box-sizing: border-box; padding-bottom: 26px; }
-.msg-counter { position: absolute; bottom: 9px; right: 12px; font-size: 0.68rem; color: rgba(240,235,227,0.45); pointer-events: none; }
+.form-ta-wrap { width: 100%; }
+.form-ta-wrap .form-ta { width: 100%; box-sizing: border-box; padding-bottom: 28px; }
+.msg-counter { display: block; text-align: right; padding-right: 12px; margin-top: -26px; margin-bottom: 0; font-size: 0.68rem; color: rgba(240,235,227,0.45); pointer-events: none; position: relative; z-index: 1; }
 .msg-counter.warn { color: #e07c3a; }
 @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
 .shake { animation: shake 0.35s ease; }
