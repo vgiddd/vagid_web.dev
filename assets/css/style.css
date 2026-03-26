@@ -460,7 +460,9 @@ nav {
   }
 }
 .phead { height: clamp(120px,18vw,185px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.phead--green { background: linear-gradient(170deg, #7a4f0a 0%, #b87618 40%, #9d6615 70%, #6b4509 100%); }
+.phead-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.phead--green { background: #6b4509; }
+.phead--green::after { content: ''; position: absolute; inset: 0; background: rgba(20,12,0,0.45); z-index: 1; pointer-events: none; }
 .rye-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .phead--brown { background: linear-gradient(135deg, #3d2414 0%, #5c3520 50%, #3a2010 100%); }
 .phead-lines {
