@@ -42,6 +42,8 @@ const i18n = {
     'proj.card1.desc': 'Мой первый сайт — с него всё началось. Вёрстка с нуля: HTML структура, шрифты, иконки, стили на чистом CSS.',
     'proj.card2.label':'Лендинг',
     'proj.card2.desc': 'Лендинг для строительной компании: тарифы, варианты домов, форма заявки. Полностью адаптивный на любом экране.',
+    'proj.card3.label':'Портфолио',
+    'proj.card3.desc': 'Сайт-портфолио для дизайнера упаковки и этикеток. Каталог работ, описание услуг и форма заявки — всё на одной странице.',
     'proj.link.open':  'Открыть →',
 
     'soc.eye':   'Мои соц сети',
@@ -112,6 +114,8 @@ const i18n = {
     'proj.card1.desc': 'My first website — where it all started. Built from scratch: HTML structure, fonts, icons, pure CSS styles.',
     'proj.card2.label':'Landing page',
     'proj.card2.desc': 'A landing page for a construction company: pricing, house options, contact form. Fully responsive on any screen.',
+    'proj.card3.label':'Portfolio',
+    'proj.card3.desc': 'Portfolio site for a packaging and label designer. Work showcase, services and contact form — all on one page.',
     'proj.link.open':  'Open →',
 
     'soc.eye':   'My socials',
