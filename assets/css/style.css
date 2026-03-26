@@ -460,7 +460,7 @@ nav {
   }
 }
 .phead { height: clamp(120px,18vw,185px); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.phead-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.phead-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; display: block; }
 .phead--green { background: #6b4509; }
 .phead--green::after { content: ''; position: absolute; inset: 0; background: rgba(20,12,0,0.45); z-index: 1; pointer-events: none; }
 .rye-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
@@ -718,6 +718,7 @@ footer::before {
   .nav-links { display: none; }
   .burger    { display: flex; }
   .lang-sw   { margin-left: auto; margin-right: 8px; }
+  .phead     { height: 140px; }
   .hero-btns { flex-direction: column; }
   .btn-f, .btn-g { width: 100%; text-align: center; }
   .hero-stats { gap: clamp(0.8rem,3vw,1.2rem); }
