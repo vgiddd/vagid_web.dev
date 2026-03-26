@@ -38,10 +38,14 @@
   <nav>
     <div class="nav-logo">В<span>.</span></div>
     <ul class="nav-links">
-      <li><a href="#skills" onclick="closeMob()">Навыки</a></li>
-      <li><a href="#projects" onclick="closeMob()">Проекты</a></li>
-      <li><a href="#contact" onclick="closeMob()">Соц сети</a></li>
+      <li><a href="#skills" onclick="closeMob()" data-i18n="nav.skills">Навыки</a></li>
+      <li><a href="#projects" onclick="closeMob()" data-i18n="nav.projects">Проекты</a></li>
+      <li><a href="#contact" onclick="closeMob()" data-i18n="nav.socials">Соц сети</a></li>
     </ul>
+    <div class="lang-sw">
+      <button class="lang-btn active" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
     <div class="burger" onclick="toggleMob()" id="burger">
       <span id="b1"></span>
       <span id="b2"></span>
@@ -50,9 +54,9 @@
   </nav>
 
   <div class="mob-menu" id="mobMenu">
-    <a href="#skills" onclick="closeMob()">Навыки</a>
-    <a href="#projects" onclick="closeMob()">Проекты</a>
-    <a href="#contact" onclick="closeMob()">Соц сети</a>
+    <a href="#skills" onclick="closeMob()" data-i18n="nav.skills">Навыки</a>
+    <a href="#projects" onclick="closeMob()" data-i18n="nav.projects">Проекты</a>
+    <a href="#contact" onclick="closeMob()" data-i18n="nav.socials">Соц сети</a>
   </div>
 
   <!-- HERO -->
@@ -66,35 +70,35 @@
     <div class="hero-content">
       <div class="badge rv">
         <div class="bdot"></div>
-        Открыт к проектам
+        <span data-i18n="hero.badge">Открыт к проектам</span>
       </div>
       <h1 class="hero-name rv">
         <span class="name-vagid">Вагид</span>
         <span class="name-role">Frontend</span>
         <span class="name-role">Developer</span>
       </h1>
-      <p class="hero-sub rv">
+      <p class="hero-sub rv" data-i18n-html="hero.sub">
         Создаю лендинги, сайты-визитки и одностраничники.<br>
         Чистый код, адаптивная вёрстка — без шаблонов.
       </p>
       <div class="hero-btns rv">
-        <a href="#projects" class="btn-f">Посмотреть работы</a>
-        <a href="#order" class="btn-g">Оставить заявку</a>
+        <a href="#projects" class="btn-f" data-i18n="hero.btn.works">Посмотреть работы</a>
+        <a href="#order" class="btn-g" data-i18n="hero.btn.order">Оставить заявку</a>
       </div>
       <div class="hero-stats rv">
         <div class="hstat">
           <span class="hstat-n" data-target="2">0</span>
-          <span class="hstat-l">Проекта</span>
+          <span class="hstat-l" data-i18n="hero.stat.projects">Проекта</span>
         </div>
         <div class="hstat-div"></div>
         <div class="hstat">
           <span class="hstat-n">2025</span>
-          <span class="hstat-l">Год старта</span>
+          <span class="hstat-l" data-i18n="hero.stat.year">Год старта</span>
         </div>
         <div class="hstat-div"></div>
         <div class="hstat">
           <span class="hstat-n">100%</span>
-          <span class="hstat-l">Адаптивность</span>
+          <span class="hstat-l" data-i18n="hero.stat.adaptive">Адаптивность</span>
         </div>
       </div>
     </div>
@@ -108,56 +112,56 @@
 
   <!-- НАВЫКИ -->
   <section class="skills-wrap" id="skills">
-    <p class="sec-eye rv">Что умею</p>
-    <h2 class="sec-ttl rv">Навыки</h2>
+    <p class="sec-eye rv" data-i18n="skills.eye">Что умею</p>
+    <h2 class="sec-ttl rv" data-i18n="skills.title">Навыки</h2>
     <div class="sk-grid">
       <div class="sk rv">
         <span class="sk-icon">🧱</span>
         <div class="sk-name">HTML5</div>
-        <div class="sk-sub">Семантика &amp; структура</div>
-        <div class="sk-desc">Язык разметки, которым описывается структура любой веб-страницы. Заголовки, блоки, ссылки — всё это HTML.</div>
+        <div class="sk-sub" data-i18n="sk.html5.sub">Семантика &amp; структура</div>
+        <div class="sk-desc" data-i18n="sk.html5.desc">Язык разметки, которым описывается структура любой веб-страницы. Заголовки, блоки, ссылки — всё это HTML.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">🎨</span>
         <div class="sk-name">CSS3</div>
-        <div class="sk-sub">Стили &amp; анимации</div>
-        <div class="sk-desc">Отвечает за внешний вид сайта: цвета, отступы, шрифты, анимации. Без CSS страница — просто текст.</div>
+        <div class="sk-sub" data-i18n="sk.css3.sub">Стили &amp; анимации</div>
+        <div class="sk-desc" data-i18n="sk.css3.desc">Отвечает за внешний вид сайта: цвета, отступы, шрифты, анимации. Без CSS страница — просто текст.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">⚡</span>
         <div class="sk-name">JavaScript</div>
-        <div class="sk-sub">Интерактив</div>
-        <div class="sk-desc">Язык программирования для браузера. Добавляет интерактивность: обработка кликов, анимации, запросы к серверу.</div>
+        <div class="sk-sub" data-i18n="sk.js.sub">Интерактив</div>
+        <div class="sk-desc" data-i18n="sk.js.desc">Язык программирования для браузера. Добавляет интерактивность: обработка кликов, анимации, запросы к серверу.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">📐</span>
-        <div class="sk-name">Flexbox / Grid</div>
-        <div class="sk-sub">Вёрстка макетов</div>
-        <div class="sk-desc">CSS-инструменты для построения раскладки. Позволяют точно управлять позиционированием элементов на странице.</div>
+        <div class="sk-name" data-i18n="sk.flex.name">Flexbox / Grid</div>
+        <div class="sk-sub" data-i18n="sk.flex.sub">Вёрстка макетов</div>
+        <div class="sk-desc" data-i18n="sk.flex.desc">CSS-инструменты для построения раскладки. Позволяют точно управлять позиционированием элементов на странице.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">📱</span>
-        <div class="sk-name">Адаптивность</div>
-        <div class="sk-sub">Mobile-first</div>
-        <div class="sk-desc">Вёрстка, которая корректно отображается на любом устройстве — телефоне, планшете или десктопе.</div>
+        <div class="sk-name" data-i18n="sk.resp.name">Адаптивность</div>
+        <div class="sk-sub" data-i18n="sk.resp.sub">Mobile-first</div>
+        <div class="sk-desc" data-i18n="sk.resp.desc">Вёрстка, которая корректно отображается на любом устройстве — телефоне, планшете или десктопе.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">🗂</span>
         <div class="sk-name">Git &amp; GitHub</div>
-        <div class="sk-sub">Версионирование</div>
-        <div class="sk-desc">Веду все свои проекты на GitHub — слежу за изменениями в коде и публикую результат.</div>
+        <div class="sk-sub" data-i18n="sk.git.sub">Версионирование</div>
+        <div class="sk-desc" data-i18n="sk.git.desc">Веду все свои проекты на GitHub — слежу за изменениями в коде и публикую результат.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">🔤</span>
         <div class="sk-name">Figma</div>
-        <div class="sk-sub">Работа по макету</div>
-        <div class="sk-desc">Работаю с дизайн-макетами: переношу готовый визуал в код с точным соблюдением отступов, шрифтов и компонентов.</div>
+        <div class="sk-sub" data-i18n="sk.figma.sub">Работа по макету</div>
+        <div class="sk-desc" data-i18n="sk.figma.desc">Работаю с дизайн-макетами: переношу готовый визуал в код с точным соблюдением отступов, шрифтов и компонентов.</div>
       </div>
       <div class="sk rv">
         <span class="sk-icon">🌐</span>
-        <div class="sk-name">Лендинги</div>
-        <div class="sk-sub">Специализация</div>
-        <div class="sk-desc">Моя основная специализация. Делаю продающие одностраничники с акцентом на скорость, анимации и конверсию.</div>
+        <div class="sk-name" data-i18n="sk.land.name">Лендинги</div>
+        <div class="sk-sub" data-i18n="sk.land.sub">Специализация</div>
+        <div class="sk-desc" data-i18n="sk.land.desc">Моя основная специализация. Делаю продающие одностраничники с акцентом на скорость, анимации и конверсию.</div>
       </div>
     </div>
   </section>
@@ -166,8 +170,8 @@
 
   <!-- ПРОЕКТЫ -->
   <section class="proj-wrap" id="projects">
-    <p class="sec-eye rv">Мои работы</p>
-    <h2 class="sec-ttl rv">Проекты</h2>
+    <p class="sec-eye rv" data-i18n="proj.eye">Мои работы</p>
+    <h2 class="sec-ttl rv" data-i18n="proj.title">Проекты</h2>
     <div class="proj-grid">
 
       <div class="pcard rv">
@@ -228,19 +232,19 @@
             <use href="#rye-stalk" transform="translate(688,224) rotate(2) scale(0.84)"/>
             <use href="#rye-stalk" transform="translate(710,222) rotate(-2.5) scale(0.83)"/>
           </svg>
-          <span class="plabel">Первый проект</span>
+          <span class="plabel" data-i18n="proj.card1.label">Первый проект</span>
           <div class="picon">🍞</div>
           <span class="pyear">2025</span>
         </div>
         <div class="pbody">
           <h3 class="ptitle">Bread Store</h3>
-          <p class="pdesc">Мой первый сайт — с него всё началось. Вёрстка с нуля: HTML структура, шрифты, иконки, стили на чистом CSS.</p>
+          <p class="pdesc" data-i18n="proj.card1.desc">Мой первый сайт — с него всё началось. Вёрстка с нуля: HTML структура, шрифты, иконки, стили на чистом CSS.</p>
           <div class="pfoot">
             <div class="techs">
               <span class="tech">HTML</span>
               <span class="tech">CSS</span>
             </div>
-            <a href="https://vgiddd.github.io/bread_store/" target="_blank" class="plink">Открыть →</a>
+            <a href="https://vgiddd.github.io/bread_store/" target="_blank" class="plink" data-i18n="proj.link.open">Открыть →</a>
           </div>
         </div>
       </div>
@@ -248,13 +252,13 @@
       <div class="pcard rv">
         <div class="phead phead--brown">
           <div class="phead-lines"></div>
-          <span class="plabel">Лендинг</span>
+          <span class="plabel" data-i18n="proj.card2.label">Лендинг</span>
           <div class="picon">🏗</div>
           <span class="pyear">2025</span>
         </div>
         <div class="pbody">
           <h3 class="ptitle">СтройМастер</h3>
-          <p class="pdesc">Лендинг для строительной компании: тарифы, варианты домов, форма заявки. Полностью адаптивный на любом экране.</p>
+          <p class="pdesc" data-i18n="proj.card2.desc">Лендинг для строительной компании: тарифы, варианты домов, форма заявки. Полностью адаптивный на любом экране.</p>
           <div class="pfoot">
             <div class="techs">
               <span class="tech">HTML</span>
@@ -275,10 +279,10 @@
   <section class="contact-wrap" id="contact">
     <div class="cgrid">
       <div class="rv">
-        <p class="sec-eye rv">Мои соц сети</p>
-        <h2 class="sec-ttl rv">Работаю, живу,<br>показываю.</h2>
-        <p class="ccta">Интересно,<br><em>чем живу и занимаюсь?</em><br>Заглядывайте.</p>
-        <p class="cnote">Рабочий процесс, новые проекты и жизнь вне экрана — всё в одном месте.</p>
+        <p class="sec-eye rv" data-i18n="soc.eye">Мои соц сети</p>
+        <h2 class="sec-ttl rv" data-i18n-html="soc.title">Работаю, живу,<br>показываю.</h2>
+        <p class="ccta" data-i18n-html="soc.cta">Интересно,<br><em>чем живу и занимаюсь?</em><br>Заглядывайте.</p>
+        <p class="cnote" data-i18n="soc.note">Рабочий процесс, новые проекты и жизнь вне экрана — всё в одном месте.</p>
       </div>
       <div class="soc-list rv">
         <a href="https://github.com/vgiddd" target="_blank" class="soc">
@@ -327,20 +331,20 @@
   <section class="form-section" id="order">
     <div class="form-wrap rv">
       <div class="form-left">
-        <p class="sec-eye">Заявка</p>
-        <h2 class="sec-ttl">Есть задача?<br>Оставьте заявку.</h2>
-        <p class="form-sub">Укажите удобный способ связи — и я отвечу в течение дня. Работаю аккуратно и в срок.</p>
+        <p class="sec-eye" data-i18n="form.eye">Заявка</p>
+        <h2 class="sec-ttl" data-i18n-html="form.title">Есть задача?<br>Оставьте заявку.</h2>
+        <p class="form-sub" data-i18n="form.sub">Укажите удобный способ связи — и я отвечу в течение дня. Работаю аккуратно и в срок.</p>
         <div class="form-perks">
-          <div class="form-perk">✦ Быстрый ответ</div>
-          <div class="form-perk">✦ Без лишних слов</div>
-          <div class="form-perk">✦ Результат в срок</div>
+          <div class="form-perk" data-i18n="form.perk1">✦ Быстрый ответ</div>
+          <div class="form-perk" data-i18n="form.perk2">✦ Без лишних слов</div>
+          <div class="form-perk" data-i18n="form.perk3">✦ Результат в срок</div>
         </div>
       </div>
       <div class="form-card">
         <form class="order-form" id="orderForm">
-          <label class="form-label">Ваше имя</label>
-          <input type="text" class="form-inp" id="fname" placeholder="Как к вам обращаться?" maxlength="80">
-          <label class="form-label">Способ связи</label>
+          <label class="form-label" data-i18n="form.label.name">Ваше имя</label>
+          <input type="text" class="form-inp" id="fname" placeholder="Как к вам обращаться?" data-i18n-ph="form.ph.name" maxlength="80">
+          <label class="form-label" data-i18n="form.label.method">Способ связи</label>
           <div class="ctabs">
             <button type="button" class="ctab active" data-tab="tg"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg> Telegram</button>
             <button type="button" class="ctab" data-tab="wa"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg> WhatsApp</button>
@@ -357,17 +361,17 @@
               <div class="cselect-opt" data-tab="email"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> Email</div>
             </div>
           </div>
-          <input type="text" class="form-inp" id="fcontact" placeholder="@username или t.me/username" maxlength="120">
+          <input type="text" class="form-inp" id="fcontact" placeholder="@username или t.me/username" data-i18n-ph="form.ph.contact" maxlength="120">
           <div id="tg-phone-wrap" style="display:block">
-            <label class="form-label">Номер телефона <span style="font-size:0.7em;opacity:0.5;text-transform:none;letter-spacing:0">на случай если не смогу написать в TG</span></label>
-            <input type="text" class="form-inp" id="fphone" placeholder="+7 900 000 00 00" maxlength="20">
+            <label class="form-label" data-i18n="form.label.phone">Номер телефона <span style="font-size:0.7em;opacity:0.5;text-transform:none;letter-spacing:0" data-i18n="form.label.phonenote">на случай если не смогу написать в TG</span></label>
+            <input type="text" class="form-inp" id="fphone" placeholder="+7 900 000 00 00" data-i18n-ph="form.ph.phone" maxlength="20">
           </div>
-          <label class="form-label">Сообщение</label>
+          <label class="form-label" data-i18n="form.label.msg">Сообщение</label>
           <div class="form-ta-wrap">
-            <textarea class="form-inp form-ta" id="fmsg" placeholder="Начните с «Мне нужен сайт для...» и укажите нишу — барбершопа, фитнес-клуба, юридических услуг и т.д." maxlength="200"></textarea>
+            <textarea class="form-inp form-ta" id="fmsg" placeholder="Начните с «Мне нужен сайт для...» и укажите нишу — барбершопа, фитнес-клуба, юридических услуг и т.д." data-i18n-ph="form.ph.msg" maxlength="200"></textarea>
             <span class="msg-counter" id="msgCounter">0/200</span>
           </div>
-          <button type="submit" class="form-btn">Отправить заявку →</button>
+          <button type="submit" class="form-btn" data-i18n="form.submit">Отправить заявку →</button>
           <p class="form-status" id="formStatus"></p>
         </form>
       </div>
@@ -375,10 +379,11 @@
   </section>
 
   <footer>
-    <span>© 2025 Вагид — Frontend Developer</span>
-    <span>Сделано руками, без шаблонов</span>
+    <span data-i18n="footer.copy">© 2025 Вагид — Frontend Developer</span>
+    <span data-i18n="footer.tag">Сделано руками, без шаблонов</span>
   </footer>
 
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/script.js"></script>
 </div>
 </body>

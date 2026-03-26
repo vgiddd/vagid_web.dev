@@ -166,6 +166,16 @@ nav {
 }
 .nav-links a:hover { color: var(--cream); transform: translateY(-2px) scale(1.08); }
 
+.lang-sw { display: flex; gap: 4px; align-items: center; margin-right: 4px; }
+.lang-btn {
+  background: none; border: 1px solid rgba(196,148,80,0.2);
+  color: rgba(240,235,227,0.45); border-radius: 8px;
+  padding: 4px 10px; font-size: 0.7rem; letter-spacing: 0.08em;
+  cursor: pointer; transition: all 0.2s; font-family: var(--sans);
+}
+.lang-btn.active { border-color: rgba(196,148,80,0.55); color: var(--cream); background: rgba(196,148,80,0.1); }
+@media (hover: hover) { .lang-btn:hover { border-color: rgba(196,148,80,0.4); color: rgba(240,235,227,0.8); } }
+
 .burger { display: none; flex-direction: column; gap: 5px; cursor: none; padding: 4px; }
 .burger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 99px; transition: transform .3s, opacity .3s; }
 
